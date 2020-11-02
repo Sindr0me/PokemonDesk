@@ -3,7 +3,7 @@ import s from './App.modules.scss';
 import './custom.css';
 import cn from 'classnames'
 
-const App = () => {
+const App = (): JSX.Element => {
     return (
         <div className={cn(s.header, 'color')}>
             This is App Component!
