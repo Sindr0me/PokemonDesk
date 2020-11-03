@@ -1,13 +1,15 @@
 import React from 'react';
-import s from './App.modules.scss';
-import './custom.css';
-import cn from 'classnames'
+import Header from './components/Header';
+import Footer from './components/Footer';
+import s from './App.module.scss';
 
 const App = (): JSX.Element => {
-    return (
-        <div className={cn(s.header, 'color')}>
-            This is App Component!
-        </div>
-    )
-}
+  return (
+    <div className={s.app}>
+      <Header />
+      <div className={s.content} />
+      <Footer />
+    </div>
+  );
+};
 export default App;

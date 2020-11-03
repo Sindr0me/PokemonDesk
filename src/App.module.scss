@@ -1,0 +1,38 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  display: flex;
+  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.header {
+  width: 100%;
+  background: #f5db13;
+  box-shadow: 0 4px 16px rgba(1, 28, 64, 0.2);
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  padding: 20px;
+}
+.menu {
+  padding: 30px 0 40px;
+}
+.fitem {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #212121;
+  padding: 33px 187px;
+}
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
