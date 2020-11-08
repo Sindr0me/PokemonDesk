@@ -8,11 +8,11 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },
   mode: NODE_ENV || 'development',
-  // watch: true,
-  // watchOptions: {
-  //   ignored: /node_modules/,
-  //   poll: 1000,
-  // },
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/,
+    poll: 1000,
+  },
   entry: path.resolve(__dirname, './src/index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),

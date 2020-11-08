@@ -7,7 +7,7 @@
   "scripts": {
     "buid:dev": "cross-env NODE_ENV=development & webpack --config webpack.config.js",
     "buid:prod": "cross-env NODE_ENV=production & webpack --config webpack.config.js",
-    "start": "cross-env NODE_ENV=development & webpack & webpack-dev-server"
+    "start": "cross-env NODE_ENV=development & webpack-dev-server"
   },
   "dependencies": {
     "classnames": "^2.2.6",
