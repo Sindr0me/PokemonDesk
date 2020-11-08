@@ -1,0 +1,18 @@
+@import '../../variables';
+
+.footerItem {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: $dark;
+}
+.root {
+  width: 100%;
+}
+.wrap {
+  padding: 33px 127px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

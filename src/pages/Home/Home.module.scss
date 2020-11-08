@@ -1,0 +1,49 @@
+@import '../../variables';
+
+$text-content-mg: 64px;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(180deg, $third 0%, $primary 100%);
+  color: $dark;
+}
+
+.contentWrap {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.contentText {
+  position: relative;
+  z-index: 10;
+  flex-basis: 50%;
+  margin-top: $text-content-mg * 2;
+}
+
+.contentParallax {
+  position: absolute;
+  width: 55%;
+  left: 45%;
+  overflow: hidden;
+}
+
+.h1 {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 72px;
+  line-height: 84px;
+  letter-spacing: 4px;
+  margin-bottom: $text-content-mg;
+  margin-top: 0;
+}
+
+.subLabel {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+  margin-bottom: $text-content-mg;
+}
