@@ -1,15 +1,16 @@
 import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import s from './App.module.scss';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import HomePage from './pages/Home';
+import Pokedex from './pages/Pokedex';
 
 const App = (): JSX.Element => {
   return (
-    <div className={s.app}>
-      <Header />
-      <div className={s.content} />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Route path="/" exact component={HomePage} />
+      <Route path="/home" component={HomePage} />
+      <Route path="/pokedex" component={Pokedex} />
+    </BrowserRouter>
   );
 };
 export default App;

@@ -1,0 +1,58 @@
+@import '../../variables';
+
+.root {
+  border: none;
+  outline: none;
+  background: #73d677;
+  border-radius: 11px;
+  color: $dark;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.green {
+  background: #73d677;
+}
+.yellow {
+  background: #f2cb07;
+}
+.blue {
+  background: #07d6f2;
+}
+
+.small {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 0 7px 2px;
+  box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.18);
+  height: 19px;
+
+  &:active {
+    box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+    padding-bottom: 2px;
+  }
+}
+
+.default {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 23px;
+  line-height: 27px;
+  height: 66px;
+  padding: 0 20px 9px;
+  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+
+  &:active {
+    box-shadow: inset 0px -6px 0px rgba(0, 0, 0, 0.18);
+    padding-bottom: 6px;
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
