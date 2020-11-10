@@ -1,40 +1,13 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
+import { A, usePath } from 'hookrouter';
 import s from './Header.module.scss';
 import { ReactComponent as PokemonLogo } from './Assets/Logo.svg';
-
-interface IMenuItem {
-  id: number;
-  value: string;
-  link: string;
-}
-const MENU: IMenuItem[] = [
-  {
-    id: 1,
-    value: 'Home',
-    link: '/home',
-  },
-  {
-    id: 2,
-    value: 'Pokédex',
-    link: '/pokedex',
-  },
-  {
-    id: 3,
-    value: 'Legendaries',
-    link: '/',
-  },
-  {
-    id: 4,
-    value: 'Documentation',
-    link: '/',
-  },
-];
+import { GENERAL_MENU } from '../../routes';
 
 export const Header = (): JSX.Element => {
-  const { pathname } = useLocation();
-  const comparablePathName = pathname === '/' ? '/home' : pathname;
+  const path = usePath();
+  const comparablePathName = path === '/' ? '/home' : path;
 
   return (
     <div className={s.root}>
@@ -43,16 +16,16 @@ export const Header = (): JSX.Element => {
           <PokemonLogo />
         </div>
         <nav className={s.menuWrap}>
-          {MENU.map(({ id, value, link }) => {
+          {GENERAL_MENU.map(({ title, link }) => {
             return (
-              <Link
-                to={link}
-                key={id}
+              <A
+                href={link}
+                key={title}
                 className={cn(s.menuItem, {
                   [s.activeItem]: comparablePathName === link,
                 })}>
-                {value}
-              </Link>
+                {title}
+              </A>
             );
           })}
         </nav>
