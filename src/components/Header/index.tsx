@@ -33,4 +33,4 @@ export const Header = (): JSX.Element => {
     </div>
   );
 };
-export default Header;
+export default React.memo(Header);

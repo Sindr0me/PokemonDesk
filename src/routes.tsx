@@ -3,9 +3,17 @@ import HomePage from './pages/Home';
 import EmptyPage from './pages/NotFound';
 import Pokedex from './pages/Pokedex';
 
+// eslint-disable-next-line no-shadow
+export enum ROUTE {
+  HOME = '/home',
+  POKEDEX = '/pokedex',
+  LEGENDARIES = '/legendaries',
+  DOCUMENTATION = '/documentation',
+}
+
 interface IGeneralMenuItem {
   title: string;
-  link: string;
+  link: ROUTE;
   component: () => JSX.Element;
 }
 interface IAccMenu {
@@ -15,22 +23,22 @@ interface IAccMenu {
 export const GENERAL_MENU: IGeneralMenuItem[] = [
   {
     title: 'Home',
-    link: '/home',
+    link: ROUTE.HOME,
     component: () => <HomePage />,
   },
   {
     title: 'Pokédex',
-    link: '/pokedex',
+    link: ROUTE.POKEDEX,
     component: () => <Pokedex />,
   },
   {
     title: 'Legendaries',
-    link: '/legendaries',
+    link: ROUTE.LEGENDARIES,
     component: () => <EmptyPage />,
   },
   {
     title: 'Documentation',
-    link: '/documentation',
+    link: ROUTE.DOCUMENTATION,
     component: () => <EmptyPage />,
   },
 ];
