@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import s from './Pokedex.module.scss';
 import Footer from '../../components/Footer';
 import Layout from '../../components/Layout';
 import PokemonCard from '../../components/PokemonCard';
 import Heading from '../../components/Heading';
+import useData from '../../hook/getData';
 
 interface IPokemon {
   ['name_clean']: string;
@@ -32,36 +33,16 @@ interface IPokemonsResponse {
   total: number;
 }
 
-const usePokemons = () => {
-  const [data, setData] = useState<IPokemonsResponse>();
-  const [isError, setIsError] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const getPokemons = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch(`http://zar.hosthot.ru/api/v1/pokemons`);
-        const res: IPokemonsResponse = await response.json();
-        setData(res);
-      } catch (e) {
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getPokemons();
-  }, []);
-
-  return {
-    data,
-    isError,
-    isLoading,
-  };
-};
-
 const Pokedex = (): JSX.Element => {
-  const { data, isError, isLoading } = usePokemons();
+  const [searchValue, setSearchValue] = useState('');
+  const [query, setQuery] = useState<object>({});
+  const method = 'getPokemons';
+  const { data, isError, isLoading } = useData<IPokemonsResponse>(method, query, [searchValue, method]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+    setQuery((prevState) => ({ ...prevState, name: e.target.value }));
+  };
 
   if (isError) return <Layout className={s.contentWrap}>Error</Layout>;
   if (isLoading) return <Layout className={s.contentWrap}>Loading</Layout>;
@@ -73,6 +54,10 @@ const Pokedex = (): JSX.Element => {
           <Heading className={s.totalPokemonsHeader} type="h1">
             {data?.total} <strong>Pokemons</strong> for you to choose your favorite
           </Heading>
+        </div>
+
+        <div>
+          <input type="text" value={searchValue} onChange={handleSearchChange} />
         </div>
 
         <div className={s.pokemonCardsWrap}>
