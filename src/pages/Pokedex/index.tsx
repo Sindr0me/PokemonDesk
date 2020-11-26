@@ -5,40 +5,19 @@ import Layout from '../../components/Layout';
 import PokemonCard from '../../components/PokemonCard';
 import Heading from '../../components/Heading';
 import useData from '../../hook/getData';
+import useDebounce from '../../hook/useDebounce';
+import { IPokemonsResponse } from '../../interface/Pokemons';
 
-interface IPokemon {
-  ['name_clean']: string;
-  abilities: string[];
-  stats: {
-    hp: number;
-    attack: number;
-    defense: number;
-    'special-attack': number;
-    'special-defense': number;
-    speed: number;
-  };
-  types: string[];
-  img: string;
-  name: string;
-  ['base_experience']: 39;
-  height: number;
-  id: number;
-  ['is_default']: boolean;
-  order: number;
-  weight: number;
+interface IQuery {
+  name?: string;
 }
 
-interface IPokemonsResponse {
-  pokemons: IPokemon[];
-  total: number;
-}
-
-const Pokedex = (): JSX.Element => {
+const Pokedex: React.FC = (): JSX.Element => {
   const [searchValue, setSearchValue] = useState('');
-  const [query, setQuery] = useState<object>({});
+  const [query, setQuery] = useState<IQuery>({});
+  const debouncedValue = useDebounce(searchValue, 500);
   const method = 'getPokemons';
-  const { data, isError, isLoading } = useData<IPokemonsResponse>(method, query, [searchValue, method]);
-
+  const { data, isError, isLoading } = useData<IPokemonsResponse>(method, query, [method, debouncedValue]);
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
     setQuery((prevState) => ({ ...prevState, name: e.target.value }));

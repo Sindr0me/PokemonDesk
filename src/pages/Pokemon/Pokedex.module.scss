@@ -1,0 +1,39 @@
+@import '../../variables';
+
+$text-content-mg: 64px;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: $dark;
+}
+
+.contentWrap {
+  margin-top: 73px;
+}
+
+.pokemonCardsWrap {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.pokemonCards {
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pokemonTotal {
+  text-align: center;
+}
+
+.totalPokemonsHeader {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 41px;
+  letter-spacing: 3px;
+}

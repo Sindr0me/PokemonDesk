@@ -19,6 +19,7 @@ const useData = <T>(endpoint: string, query: object, deps: DependencyList) => {
       }
     };
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
   return {

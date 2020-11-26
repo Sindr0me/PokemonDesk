@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 import Layout from '../../components/Layout';
 import Heading from '../../components/Heading';
 import Parallax from '../../components/Parallax';
-import { ROUTE } from '../../routes';
+import MainRoutes from '../../enums/MainRoutes';
 
 const HomePage: React.FC = (): JSX.Element => {
   return (
@@ -17,7 +17,7 @@ const HomePage: React.FC = (): JSX.Element => {
             <strong>Find</strong> all your favorite <strong>Pokemon</strong>
           </Heading>
           <p className={s.subLabel}>You can know the type of Pokemon, its strengths, disadvantages and abilities</p>
-          <Button onClick={() => navigate(ROUTE.POKEDEX)}>See pokemons</Button>
+          <Button onClick={() => navigate(MainRoutes.POKEDEX)}>See pokemons</Button>
         </div>
         <div className={s.contentParallax}>
           <Parallax />
