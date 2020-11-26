@@ -12,7 +12,6 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['prettier', 'prettier', 'react', '@typescript-eslint'],
-  ignorePatterns: ['./interface/*.{ts}'],
   rules: {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'react/prop-types': 'off',

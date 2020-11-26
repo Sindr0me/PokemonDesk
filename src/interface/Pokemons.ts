@@ -1,4 +1,3 @@
-/* eslint-disable no-eval */
 export interface IPokemon {
   ['name_clean']: string;
   abilities: string[];
